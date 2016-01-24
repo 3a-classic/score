@@ -10,25 +10,25 @@ import TeamList from '../../components/TeamList'
 // the component can be tested w/ and w/o being connected.
 // See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
 const mapStateToProps = (state) => ({
-  teamMap: state.teamMap,
-  teams: state.teamMap.team
+  teamMap: state.teamMap
 })
 export class TeamView extends React.Component {
   static propTypes = {
     teamMap: PropTypes.array.object,
-    teams: PropTypes.array.isRequired
+    selectTeams: PropTypes.func.isRequired
   };
-
-  componentDidMount () {
-    teamActions.selectTeams()
-  }
 
   render () {
     return (
       <div className='container text-center'>
         <h1>Team Page</h1>
+        <button className='btn btn-default'
+          onClick={this.props.selectTeams}>
+          FETCHING
+        </button>
         {JSON.stringify(this.props.teamMap)}
-        <TeamList teams={this.props.teams} />
+        {this.props.teamMap.isFetching}
+        <TeamList teams={this.props.teamMap.team} />
       </div>
     )
   }
