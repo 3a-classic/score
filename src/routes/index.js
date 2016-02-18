@@ -17,5 +17,6 @@ export default (
     <Route path='/team' component={TeamView} />
     <Route path='/404' component={NotFoundView} />
     <Redirect from='*' to='/404' />
+
   </Route>
 )
