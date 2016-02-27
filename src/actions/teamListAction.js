@@ -46,7 +46,7 @@ function getTeamList () {
   return dispatch => {
     dispatch(getTeamRequest())
 //    return fetch('http://api.3a-classic.com/v1/page/index')
-    return fetch('/score/sampleData/team')
+    return fetch('https://gist.githubusercontent.com/u-kiyota/33f56d9f514bcc66f31f/raw/cde33ab9f32900a6bde2627f256302a568c2f008/teamListTest.json')
     .then(response => response.json())
     .then(json => dispatch(getTeamSuccess(json)))
   }

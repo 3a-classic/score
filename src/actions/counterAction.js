@@ -1,7 +1,6 @@
 import { createAction } from 'redux-actions'
 import { COUNTER_INCREMENT } from '../constants/counterConstant'
 
-
 export const increment = createAction(COUNTER_INCREMENT, (value = 1) => value)
 
 // This is a thunk, meaning it is a function that immediately
