@@ -29,9 +29,9 @@ export class TeamView extends React.Component {
 
   render () {
     const { teamState } = this.props
-    const team = teamState.team
-    console.debug('【DEBUG】PAGE=TeamView;FILE=TeamView.js;VAR:teamList=' + JSON.stringify(teamState))
-    console.debug('【DEBUG】PAGE=TeamView;FILE=TeamView.js;VAR:team=' + JSON.stringify(team))
+    const team = teamState.get('team').toJS()
+    console.debug('【DEBUG】PAGE=TeamView;FILE=TeamView.js;VAR:teamState=' + JSON.stringify(teamState))
+    console.debug('【DEBUG】PAGE=TeamView;FILE=TeamView.js;VAR:team=' + team)
     return (
       <div className='container text-center'>
         <h1>Team Page</h1>

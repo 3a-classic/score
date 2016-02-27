@@ -58,7 +58,8 @@ export function fetchPostsIfNeeded () {
 function getTeamList () {
   return dispatch => {
     dispatch(getTeamRequest())
-    return fetch('http://api.3a-classic.com/v1/page/index')
+//    return fetch('http://api.3a-classic.com/v1/page/index')
+    return fetch('/score/sampleData/team')
     .then(response => response.json())
     .then(json => dispatch(getTeamSuccess(json)))
   }
