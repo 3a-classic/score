@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { selectTeam, fetchPostsIfNeeded } from '../../redux/modules/team'
 // import classes from './TeamView.scss'
-import { actions as teamActions } from '../../redux/modules/team'
+import { actions as teamActions } from '../../redux/actions/teamAction'
 import TeamListCompornent from '../../components/teamList'
+import {size} from 'lodash'
 
 // We define mapStateToProps where we'd normally use
 // the @connect decorator so the data requirements are clear upfront, but then
@@ -18,7 +18,8 @@ const mapStateToProps = (state) => ({
 
 export class TeamView extends React.Component {
   static propTypes = {
-    teamState: PropTypes.object.isRequired
+    teamState: PropTypes.object.isRequired,
+    fetchPostsIfNeeded: PropTypes.func.isRequired
   };
 
   componentDidMount () {
@@ -34,13 +35,13 @@ export class TeamView extends React.Component {
     return (
       <div className='container text-center'>
         <h1>Team Page</h1>
-        {teamState.isFetching && team.length === 0 &&
+        {teamState.isFetching && size(team) === 0 &&
           <h2>Loading...</h2>
         }
-        {!teamState.isFetching && team.length === 0 &&
+        {!teamState.isFetching && size(team) === 0 &&
           <h2>Empty.</h2>
         }
-        {teamState.team.length > 0 &&
+        {size(team) > 0 &&
           <div style={{ opacity: teamState.isFetching ? 0.5 : 1 }}>
             <TeamListCompornent teams={team} />
           </div>

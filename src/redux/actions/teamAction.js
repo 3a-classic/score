@@ -1,6 +1,4 @@
-import { createAction, handleActions } from 'redux-actions'
-import fetch from 'isomorphic-fetch'
-// import Immutable from 'immutable'
+import { createAction } from 'redux-actions'
 
 // ------------------------------------
 // Constants
@@ -70,37 +68,3 @@ function getTeamList () {
 export const getTeamRequest = createAction(GET_TEAM_REQUEST)
 export const getTeamSuccess = createAction(GET_TEAM_SUCCESS, getTeamObj)
 
-// ------------------------------------
-// Reducer
-// ------------------------------------
-
-export default handleActions({
-  SELECT_TEAM: (state, action) => (
-    Object.assign({}, state, {
-      team: action.payload.team
-    })
-  ),
-  GET_TEAM_REQUEST: (state, action) => (
-    Object.assign({}, state, {
-      isFetching: true,
-      didInvalidate: false
-    })
-  ),
-  GET_TEAM_SUCCESS: (state, action) => (
-    Object.assign({}, state, {
-      isFetching: false,
-      didInvalidate: false,
-      team: action.payload.teamList.team,
-      lastUpdated: action.payload.teamList.receivedAt
-    })
-  ),
-  INVALIDATE_TEAM: (state, action) => (
-    Object.assign({}, state, {
-      didInvalidate: true
-    })
-  )
-},
-  {
-    team: ['testA', 'testB'],
-    isFetching: false
-  })
