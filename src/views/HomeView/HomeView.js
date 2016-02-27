@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { actions as counterActions } from '../../redux/modules/counter'
+import { actions as counterActions } from '../../redux/actions/counter'
 import DuckImage from './Duck.jpg'
 import classes from './HomeView.scss'
 
@@ -37,7 +37,7 @@ export class HomeView extends React.Component {
           <span className={classes['counter--green']}>{this.props.counter}</span>
         </h2>
         <button className='btn btn-default'
-                onClick={() => this.props.increment()}>
+                onClick={() => this.props.increment(1)}>
           Increment
         </button>
         {' '}
@@ -47,6 +47,8 @@ export class HomeView extends React.Component {
         </button>
         <hr />
         <Link to='/404'>Go to 404 Page</Link>
+        <br />
+        <Link to='/team'>GO to Team Page</Link>
       </div>
     )
   }
