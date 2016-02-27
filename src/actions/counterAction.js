@@ -1,13 +1,7 @@
-import { createAction, handleActions } from 'redux-actions'
+import { createAction } from 'redux-actions'
+import { COUNTER_INCREMENT } from '../constants/counterConstant'
 
-// ------------------------------------
-// Constants
-// ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
 
-// ------------------------------------
-// Actions
-// ------------------------------------
 export const increment = createAction(COUNTER_INCREMENT, (value = 1) => value)
 
 // This is a thunk, meaning it is a function that immediately
@@ -29,9 +23,3 @@ export const actions = {
   doubleAsync
 }
 
-// ------------------------------------
-// Reducer
-// ------------------------------------
-export default handleActions({
-  [COUNTER_INCREMENT]: (state, { payload }) => state + payload
-}, 1)

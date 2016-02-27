@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 // import classes from './TeamView.scss'
-import { actions as teamActions } from '../../redux/actions/teamAction'
+import { actions as teamActions } from '../../actions/teamListAction'
 import TeamListCompornent from '../../components/teamList'
 import {size} from 'lodash'
 

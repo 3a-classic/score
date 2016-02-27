@@ -1,18 +1,5 @@
 import { createAction } from 'redux-actions'
-
-// ------------------------------------
-// Constants
-// ------------------------------------
-// export const SELECT_TEAM = 'SELECT_TEAM'
-export const GET_TEAM_REQUEST = 'GET_TEAM_REQUEST'
-export const GET_TEAM_SUCCESS = 'GET_TEAM_SUCCESS'
-export const GET_TEAM_FAILURE = 'GET_TEAM_FAILURE'
-export const SELECT_TEAM = 'SELECT_TEAM'
-export const INVALIDATE_TEAM = 'INVALIDATE_TEAM'
-
-// ------------------------------------
-// Actions
-// ------------------------------------
+import { GET_TEAM_REQUEST, GET_TEAM_SUCCESS } from '../constants/teamListConstant'
 
 export const actions = {
 //  selectTeam,

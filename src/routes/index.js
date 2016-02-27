@@ -8,7 +8,7 @@ import { Route, IndexRoute, Redirect } from 'react-router'
 // your current file is.
 import CoreLayout from 'layouts/CoreLayout/CoreLayout'
 import HomeView from 'views/HomeView/HomeView'
-import TeamView from 'views/TeamView/TeamView'
+import TeamListView from 'views/TeamListView/TeamListView'
 import NotFoundView from 'views/NotFoundView/NotFoundView'
 // for test
 import teamTest from 'sampleData/teamTest'
@@ -16,7 +16,7 @@ import teamTest from 'sampleData/teamTest'
 export default (
   <Route path='/score' component={CoreLayout}>
     <IndexRoute component={HomeView} />
-    <Route path='/team' component={TeamView} />
+    <Route path='/team' component={TeamListView} />
     <Route path='/404' component={NotFoundView} />
     <Route path='sampleData/team' handler={teamTest} />
     <Redirect from='*' to='/404' />
