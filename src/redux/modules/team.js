@@ -15,53 +15,30 @@ export const INVALIDATE_TEAM = 'INVALIDATE_TEAM'
 // ------------------------------------
 // Actions
 // ------------------------------------
-// export const select = createAction(SELECT_TEAM, value => value)
-
-//export const selectTeamFailure = createAction(FETCHED_POSTS_FAILURE, value => value)
-
-//export const selectTeamsSuccess = createAction(FETCHED_POSTS_SUCCESS, value => value)
 
 export const actions = {
-//  select,
-    selectTeam,
-//  selectTeamFailure,
+//  selectTeam,
   getTeamSuccess,
   fetchPostsIfNeeded
 }
 
-//export const selectTeams = () => {
-//  console.log('【ACTION】selectTeams')
-//  return (dispatch, getState) => {
-//    console.log('【ACTION】selectTeams')
-//    fetch('../../../test/data/team.json')
-//    .then(response => response.json())
-//    .then(json => dispatch(selectTeamsSuccess(json)))
-//  }
-//}
-
-const teamObj = () => {
-  return {
-    team
-  }
-}
-
-//function getTeamRequest () {
-//  return {
-//    type: GET_TEAM_REQUEST
-//  }
-//}
+// const teamObj = () => {
+//   return {
+//     team
+//   }
+// }
 
 const getTeamObj = (json) => {
   console.debug('【DEBUG】PAGE=TeamView;FILE=team.js;VAR:json=')
   console.dir(json)
-  console.log('teamList='+json.team.concat())
+  console.log('teamList=' + json.team.concat())
   return {
-    teamList: {team:json.team.concat(),
-    receivedAt: Date.now()},
+    teamList: { team: json.team.concat(),
+    receivedAt: Date.now()}
   }
 }
 
-function shouldFetchPosts(state) {
+function shouldFetchPosts (state) {
   const posts = state.postsByTeam
   if (!posts) {
     return true
@@ -72,7 +49,7 @@ function shouldFetchPosts(state) {
   return posts.didInvalidate
 }
 
-export function fetchPostsIfNeeded() {
+export function fetchPostsIfNeeded () {
   return (dispatch, getState) => {
     if (shouldFetchPosts(getState())) {
       return dispatch(getTeamList())
@@ -89,33 +66,18 @@ function getTeamList () {
   }
 }
 
-export const selectTeam = createAction(SELECT_TEAM, teamObj )
+// export const selectTeam = createAction(SELECT_TEAM, teamObj )
 export const getTeamRequest = createAction(GET_TEAM_REQUEST)
 export const getTeamSuccess = createAction(GET_TEAM_SUCCESS, getTeamObj)
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-// export default handleActions({
-//  [SELECT_TEAM]: (state, { payload }) => state + payload
-// }, {'team': ['A', 'B', 'C']})
-
-//export default handleActions({
-//  [FETCH_POSTS_REQUEST]: (state, { palyload }) => {
-//    return Object.assign({}, state, {'isFetching': true})
-//  },
-//  [FETCHED_POSTS_SUCCESS]: (state, { palyload }) => {
-//    return Object.assign({}, state, {'isFetching': false, 'team': palyload})
-//  }
-//}, {
-//  'team': ['D', 'E'],
-//  'isFetching': false
-//})
 
 export default handleActions({
   SELECT_TEAM: (state, action) => (
     Object.assign({}, state, {
-      team: action.payload.team,
+      team: action.payload.team
     })
   ),
   GET_TEAM_REQUEST: (state, action) => (
@@ -136,9 +98,9 @@ export default handleActions({
     Object.assign({}, state, {
       didInvalidate: true
     })
-  ),
+  )
 },
-{
-  team : ['testA','testB'],
-  isFetching : false
-})
+  {
+    team: ['testA', 'testB'],
+    isFetching: false
+  })

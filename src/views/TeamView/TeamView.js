@@ -13,16 +13,15 @@ import TeamListCompornent from '../../components/teamList'
 const mapStateToProps = (state) => ({
 //  isFetching,
 //  lastUpdated,
-  teamState : state.teamState
+  teamState: state.teamState
 })
 
 export class TeamView extends React.Component {
   static propTypes = {
-//    teamList: PropTypes.array.object,
-//    selectTeams: PropTypes.func.isRequired
+    teamState: PropTypes.object.isRequired
   };
 
-  componentDidMount() {
+  componentDidMount () {
 //    const { dispatch } = this.props
     this.props.fetchPostsIfNeeded()
   }
@@ -30,8 +29,8 @@ export class TeamView extends React.Component {
   render () {
     const { teamState } = this.props
     const team = teamState.team
-    {console.debug('【DEBUG】PAGE=TeamView;FILE=TeamView.js;VAR:teamList='+JSON.stringify(teamState))}
-    {console.debug('【DEBUG】PAGE=TeamView;FILE=TeamView.js;VAR:team='+JSON.stringify(team))}
+    console.debug('【DEBUG】PAGE=TeamView;FILE=TeamView.js;VAR:teamList=' + JSON.stringify(teamState))
+    console.debug('【DEBUG】PAGE=TeamView;FILE=TeamView.js;VAR:team=' + JSON.stringify(team))
     return (
       <div className='container text-center'>
         <h1>Team Page</h1>
